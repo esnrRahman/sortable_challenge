@@ -30,10 +30,13 @@ Optimization decisions that were made -
 <ul>
 	<li>Use hashmap for quick look ups and proper grouping of listing items</li>
 	<li>Use an iterator to parse through large lists. Apparently this is more efficient as I was questioned about this in one of my interviews</li>
+	<li>Created a smarter string matching algorithm. Match-off-by-one process matches the model or the family name where the strings to be matched
+	are off by one character and that character is a dash. If this search process fails, a last attempt is made by replacing the spaces in the model or family 
+	name with dashes and searching again. COMMENT: By using this algorithm, the hit rate has increased with accuracy and the algorithm runtime has decreased
+	because we are now using the convention of searching based on the spaces provided in the listing title. </li>
 </ul>
 
 <p>Items left to do</p>
 <ul>
-	<li>Create a smarter string matching algorithm. Details is explained in the code. But the current algorithm gave a successful validation. So using this algorithm as an initial commit</li>
 	<li>Check for prices to remove duplicacy of matching. But all items are unique as they have different prices even if the title is the same. So to make the current algorithm efficient, this check is not done yet.</li>
 </ul>
